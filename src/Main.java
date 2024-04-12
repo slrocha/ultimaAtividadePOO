@@ -19,6 +19,7 @@ public class Main {
         pais.mostrarPaises();
 
         continente.dimensaoContinente();
+        continente.populacaoContinente();
 
     }
 }

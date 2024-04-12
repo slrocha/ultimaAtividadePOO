@@ -118,4 +118,32 @@ public class Continente {
                 System.out.println("Dimensão da Continente não reconhecido");
         }
     }
+
+    public void populacaoContinente(){
+        switch (getNome()){
+            case "América do Sul":
+                System.out.println("Aproximadamente 433 milhões de pessoas (2022)");
+                break;
+            case "América do Norte":
+                System.out.println("Aproximadamente 596 milhões de pessoas (2022)");
+                break;
+            case "Antártica":
+                System.out.println("Não tem uma população residente permanente.");
+                break;
+            case "Ásia":
+                System.out.println("Aproximadamente 4.677 bilhões de pessoas (2022)");
+                break;
+            case "África":
+                System.out.println("Aproximadamente 1.373 bilhão de pessoas (2022)");
+                break;
+            case "Europa":
+                System.out.println("Aproximadamente 747 milhões de pessoas (2022)");
+                break;
+            case "Oceania":
+                System.out.println(" Aproximadamente 42,7 milhões de pessoas (2022)");
+                break;
+            default:
+                System.out.println("Opção Inválida");
+        }
+    }
 }
