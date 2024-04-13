@@ -1,10 +1,21 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Continente {
 
     private String nome;
     private ArrayList<String> pais;
+    Map<String, Long> populacao = new HashMap<String,Long>();
+
+    public Map<String, Long> getPopulacao() {
+        return populacao;
+    }
+
+    public void setPopulacao(Map<String, Long> populacao) {
+        this.populacao = populacao;
+    }
 
     public Continente(String nome) {
         this.nome = nome;
@@ -145,5 +156,69 @@ public class Continente {
             default:
                 System.out.println("Opção Inválida");
         }
+    }
+
+    public void densidadePopulacional(){
+        switch (getNome()){
+            case "América do Sul":
+                System.out.println("Aproximadamente 24 pessoas por quilômetro quadrado (2022)");
+                break;
+            case "América do Norte":
+                System.out.println("Aproximadamente 24 pessoas por quilômetro quadrado (2022)");
+                break;
+            case "Antártica":
+                System.out.println("Não tem uma população residente permanente, então a densidade populacional é praticamente zero.");
+                break;
+            case "Ásia":
+                System.out.println("Aproximadamente 105 pessoas por quilômetro quadrado (2022)");
+                break;
+            case "África":
+                System.out.println("Aproximadamente 45 pessoas por quilômetro quadrado (2022)");
+                break;
+            case "Europa":
+                System.out.println("Aproximadamente 73 pessoas por quilômetro quadrado (2022)");
+                break;
+            case "Oceania":
+                System.out.println("Aproximadamente 5 pessoas por quilômetro quadrado (2022)");
+                break;
+            default:
+                System.out.println("Opção Inválida");
+        }
+    }
+
+    public void maiorPopulacao(){
+        populacao.put( "América do Sul", 433000000L);
+        populacao.put( "América do Norte", 596000000L);
+        populacao.put( "Antártica", 0L);
+        populacao.put( "Ásia", 4677000000L);
+        populacao.put( "África", 1373000000L);
+        populacao.put( "Europa", 747000000L);
+        populacao.put( "Oceania", 42700000L);
+
+        Long maiorValor = null;
+        String continente = null;
+
+        for (Map.Entry<String, Long> entry : populacao.entrySet()) {
+            Long valor = entry.getValue();
+            if (maiorValor == null || valor > maiorValor) {
+                maiorValor = valor;
+                continente = entry.getKey();
+            }
+        }
+        System.out.println("O continente da"+ continente + " possui maior população estimada em " + maiorValor +" número de pessoas");
+    }
+
+    public void menorPopulacao(){
+        Long menorValor = null;
+        String continente = null;
+
+        for (Map.Entry<String, Long> entry : populacao.entrySet()) {
+            Long valor = entry.getValue();
+            if (menorValor == null || (valor < menorValor && valor !=0)) {
+                menorValor = valor;
+                continente = entry.getKey();
+            }
+        }
+        System.out.println("O continente da"+ continente + " possui menor população estimada em " + menorValor +" número de pessoas");
     }
 }

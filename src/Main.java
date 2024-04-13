@@ -18,8 +18,10 @@ public class Main {
         pais.addPais();
         pais.mostrarPaises();
 
-        continente.dimensaoContinente();
-        continente.populacaoContinente();
-
+        //continente.dimensaoContinente();
+        //continente.populacaoContinente();
+        //continente.densidadePopulacional();
+        continente.maiorPopulacao();
+        continente.menorPopulacao();
     }
 }
