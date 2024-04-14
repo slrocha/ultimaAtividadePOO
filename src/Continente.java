@@ -7,15 +7,9 @@ public class Continente {
 
     private String nome;
     private ArrayList<String> pais;
-    Map<String, Long> populacao = new HashMap<String,Long>();
+    private Map<String, Long> populacao = new HashMap<String,Long>();
+    private Map<String, Integer> dimensao = new HashMap<String,Integer>();
 
-    public Map<String, Long> getPopulacao() {
-        return populacao;
-    }
-
-    public void setPopulacao(Map<String, Long> populacao) {
-        this.populacao = populacao;
-    }
 
     public Continente(String nome) {
         this.nome = nome;
@@ -101,8 +95,28 @@ public class Continente {
         return continente;
     }
 
-    public void dimensaoContinente(){
+    public void setPopulacao(){
+        populacao.put( "América do Sul", 433000000L);
+        populacao.put( "América do Norte", 596000000L);
+        populacao.put( "Antártica", 0L);
+        populacao.put( "Ásia", 4677000000L);
+        populacao.put( "África", 1373000000L);
+        populacao.put( "Europa", 747000000L);
+        populacao.put( "Oceania", 42700000L);
+    }
 
+    public void setDimensao(){
+        dimensao.put( "América do Sul", 17840000);
+        dimensao.put( "América do Norte", 24710000);
+        dimensao.put( "Antártica", 14000000);
+        dimensao.put( "Ásia", 44580000);
+        dimensao.put( "África", 30370000);
+        dimensao.put( "Europa", 10180000);
+        dimensao.put( "Oceania", 9008500);
+    }
+
+    public void dimensaoContinente(){
+        setDimensao();
         switch (getNome()){
             case "América do Sul":
                 System.out.println("Dimensão da América do Sul: 17.840.000 km²");
@@ -131,6 +145,7 @@ public class Continente {
     }
 
     public void populacaoContinente(){
+        setPopulacao();
         switch (getNome()){
             case "América do Sul":
                 System.out.println("Aproximadamente 433 milhões de pessoas (2022)");
@@ -187,14 +202,6 @@ public class Continente {
     }
 
     public void maiorPopulacao(){
-        populacao.put( "América do Sul", 433000000L);
-        populacao.put( "América do Norte", 596000000L);
-        populacao.put( "Antártica", 0L);
-        populacao.put( "Ásia", 4677000000L);
-        populacao.put( "África", 1373000000L);
-        populacao.put( "Europa", 747000000L);
-        populacao.put( "Oceania", 42700000L);
-
         Long maiorValor = null;
         String continente = null;
 
@@ -220,5 +227,59 @@ public class Continente {
             }
         }
         System.out.println("O continente da"+ continente + " possui menor população estimada em " + menorValor +" número de pessoas");
+    }
+
+    public void maiorDimensao(){
+        Integer maiorValor = null;
+        String continente = null;
+
+        for (Map.Entry<String, Integer> entry : dimensao.entrySet()) {
+            Integer valor = entry.getValue();
+            if (maiorValor == null || valor > maiorValor) {
+                maiorValor = valor;
+                continente = entry.getKey();
+            }
+        }
+        System.out.println("O continente da "+ continente + " possui maior dimensão estimada em aproximadamente" +
+                " em " + maiorValor +" km²");
+    }
+
+    public void menorDimensao(){
+        Integer menorValor = null;
+        String continente = null;
+
+        for (Map.Entry<String, Integer> entry : dimensao.entrySet()) {
+            Integer valor = entry.getValue();
+            if (menorValor == null || valor < menorValor) {
+                menorValor = valor;
+                continente = entry.getKey();
+            }
+        }
+        System.out.println("O continente da "+ continente + " possui menor dimensão estimada em aproximadamente" +
+                " em " + menorValor +" km²");
+    }
+
+    public void razaoTerritorial(){
+        Integer menorValor = null;
+        Integer maiorValor = null;
+        String continenteMenor = null;
+        String continenteMaior = null;
+
+        for (Map.Entry<String, Integer> entry : dimensao.entrySet()) {
+            Integer valor = entry.getValue();
+            if (menorValor == null || valor < menorValor) {
+                menorValor = valor;
+                continenteMenor = entry.getKey();
+            }
+            if (maiorValor == null || valor > maiorValor) {
+                maiorValor = valor;
+                continenteMaior = entry.getKey();
+            }
+        }
+
+        Integer razaoTerritorial = (maiorValor / menorValor);
+
+        System.out.println("A razão territorial entre o continente "+continenteMaior+" (maior) e o continente " +
+                continenteMenor + " (menor) equivale à ≈ " +razaoTerritorial);
     }
 }

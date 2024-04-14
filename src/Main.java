@@ -21,7 +21,11 @@ public class Main {
         //continente.dimensaoContinente();
         //continente.populacaoContinente();
         //continente.densidadePopulacional();
-        continente.maiorPopulacao();
-        continente.menorPopulacao();
+        //continente.maiorPopulacao();
+        //continente.menorPopulacao();
+        continente.maiorDimensao();
+        //continente.menorDimensao();
+        continente.razaoTerritorial();
+
     }
 }
