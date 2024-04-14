@@ -17,6 +17,7 @@ public class Pais extends Continente{
         System.out.println("Digite o nome dos países que pertençam ao continente " + getNome() + ". Para sair, pressione 0.");
         String nomePais = scanner.next();
         paises.add(nomePais);
+        setPais(paises);
 
         while(!nomePais.equals("0")){
             System.out.println("Digite os nomes dos países que pertençam ao continente " + getNome() +". Para sair, pressione 0.");

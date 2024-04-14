@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /*Contador contador = new Contador(10);
+       /* Contador contador = new Contador(10);
         contador.retornarValorContador();
         contador.incrementar();
         contador.zerar();*/
@@ -18,14 +18,15 @@ public class Main {
         pais.addPais();
         pais.mostrarPaises();
 
-        //continente.dimensaoContinente();
-        //continente.populacaoContinente();
-        //continente.densidadePopulacional();
-        //continente.maiorPopulacao();
-        //continente.menorPopulacao();
+      /*  continente.dimensaoContinente();
+        continente.populacaoContinente();
+        continente.densidadePopulacional();
+        continente.maiorPopulacao();
+        continente.menorPopulacao();
         continente.maiorDimensao();
-        //continente.menorDimensao();
-        continente.razaoTerritorial();
+        continente.menorDimensao();
+        continente.razaoTerritorial();*/
 
     }
 }
+
